@@ -1,4 +1,4 @@
-const validUrl = require("valid-url");
+
 const shortId = require("shortid");
 const urlModel = require("../Model/UrlModel")
 const redis = require("redis");
@@ -56,9 +56,7 @@ const createUrl = async (req, res) => {
     const baseUrl = "http://localhost:3000";
 
 
-    if (!validUrl.isUri(baseUrl)) {
-      return res.status(400).json("Invalid Base Url");
-    }
+  
 
     if (!(isValidRequestBody(req.body))) {
       return res.status(400).send({
